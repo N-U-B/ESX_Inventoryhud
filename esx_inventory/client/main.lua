@@ -213,12 +213,12 @@ end)
 local isDead = false
 
 AddEventHandler('esx:onPlayerDeath', function()
-	IsDead = false
+	IsDead = true
 end)
 
 
 
-AddEventHandler('esx:Core:isAlive', function()
+AddEventHandler('esx_ambulancejob:revive', function()
 	IsDead = false
 end)
 
