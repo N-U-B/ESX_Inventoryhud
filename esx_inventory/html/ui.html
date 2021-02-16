@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html>
+
+
+
+<head>
+
+    <link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/ui.css">
+
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+
+</head>
+
+
+
+<body>
+
+    <script src="js/config.js"></script>
+
+    <script src="locales/en.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <script src="js/inventory.js"></script>
+
+    <script>
+
+        $(function () {
+
+            $("#dialog").dialog({
+
+                autoOpen: false,
+
+                clickOutside: true
+
+            });
+
+        });
+
+    </script>
+
+    <div class="ui">
+
+        <div class="inventory">
+
+            <div>
+
+                <div class="heading" style="margin-bottom: 8px;">
+
+                    <h2 style="text-transform: uppercase;"><span id="first-name">Hobo</span> <span id="last-name">Bob</span></h2>
+
+                    <p style="color: rgb(255,255,255) !important"><span id="job-name" style="color: rgb(255,255,255) !important">BENNY'S MECHANICS</span>: <span id="job-title" style="color: rgb(255,255,255) !important">OWNER</span></p>
+
+                </div>
+
+                <div id="playerInventory">
+
+                </div>
+
+            </div>
+
+            <div id="controls">
+
+                <div class="info-div"></div>
+
+                <div class="controls-div">
+
+                    <input type="number" class="control" id="count" value="1">
+
+                    <div class="control" id="use"></div>
+
+                    <div class="control" id="give"></div>
+
+                    <div class="control" id="drop"></div>
+
+                </div>
+
+            </div>
+
+            <div id="otherInventory">
+
+                <div id="noSecondInventoryMessage">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="help-message">
+
+          <p>Drag an item to one of the boxes to use the toolbar.</p>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div id="hotbar">
+
+      <div class="item-slot" slot="1"></div>
+
+      <div class="item-slot" slot="2"></div>
+
+      <div class="item-slot" slot="3"></div>
+
+      <div class="item-slot" slot="4"></div>
+
+      <div class="item-slot" slot="5"></div>
+
+      <div class="item-slot" slot="6"></div>
+
+      <div class="item-slot" slot="7"></div>
+
+      <div class="item-slot" slot="8"></div>
+
+      <div class="item-slot" slot="9"></div>
+
+    </div>
+
+
+
+    <div id="dialog">
+
+        <div id="nearPlayers">
+
+        </div>
+
+    </div>
+
+
+
+</body>
+
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#use").html(invLocale.useItem);
+
+        $("#give").html(invLocale.giveItem);
+
+        $("#drop").html(invLocale.dropItem);
+
+        $("#noSecondInventoryMessage").html(invLocale.secondInventoryNotAvailable);
+
+    });
+
+</script>
+
+
+
+</html>
+
