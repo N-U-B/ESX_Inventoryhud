@@ -214,6 +214,8 @@ local IsDead = false
 
 AddEventHandler('esx:onPlayerDeath', function(data)
     IsDead = true
+    closeInventory()
+
 end)
 
 AddEventHandler('playerSpawned', function(spawn)
@@ -238,6 +240,7 @@ end)
 
 local openInventory = false
 RegisterCommand('InventoryOpen', function()
+    
     if not IsDead then 
     openInventory()
     SendNUIMessage({
