@@ -210,18 +210,15 @@ Citizen.CreateThread(function()
         end
 end)
 
-local isDead = false
+local IsDead = false
 
-AddEventHandler('esx:onPlayerDeath', function()
-	IsDead = true
+AddEventHandler('esx:onPlayerDeath', function(data)
+    IsDead = true
 end)
 
-
-
-AddEventHandler('esx_ambulancejob:revive', function()
-	IsDead = false
+AddEventHandler('playerSpawned', function(spawn)
+    IsDead = false
 end)
-
 
 
 AddEventHandler("esx_inventoryhud:hotbarEquipt", function(slot)
@@ -241,6 +238,7 @@ end)
 
 local openInventory = false
 RegisterCommand('InventoryOpen', function()
+    if not IsDead then 
     openInventory()
     SendNUIMessage({
         action = "setJobData",
@@ -252,7 +250,9 @@ RegisterCommand('InventoryOpen', function()
         first = firstname,
         last = lastname1
       })
-end, false)
+    end
+    end, false)
+
 -----------------------------------------------------------------------------
 -- rebindable keys
 -----------------------------------------------------------------------------
